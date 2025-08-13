@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LastCalculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f2f2f2;
+    }
+
+    .calculator {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    #display {
+      width: 220px;
+      height: 40px;
+      font-size: 20px;
+      margin-bottom: 10px;
+      text-align: right;
+      padding-right: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 50px;
+      height: 50px;
+      font-size: 18px;
+      margin: 5px;
+      border: none;
+      border-radius: 8px;
+      background: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #45a049;
+    }
+
+    .operator {
+      background: #ff9800;
+    }
+
+    .operator:hover {
+      background: #e68a00;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="calculator">
+    <input type="text" id="display" disabled>
+    <br>
+    <button onclick="clearDisplay()">C</button>
+    <button class="operator" onclick="appendValue('/')">÷</button>
+    <button class="operator" onclick="appendValue('*')">×</button>
+    <button class="operator" onclick="appendValue('-')">−</button>
+    <br>
+    <button onclick="appendValue('7')">7</button>
+    <button onclick="appendValue('8')">8</button>
+    <button onclick="appendValue('9')">9</button>
+    <button class="operator" onclick="appendValue('+')">+</button>
+    <br>
+    <button onclick="appendValue('4')">4</button>
+    <button onclick="appendValue('5')">5</button>
+    <button onclick="appendValue('6')">6</button>
+    <button onclick="calculateResult()">=</button>
+    <br>
+    <button onclick="appendValue('1')">1</button>
+    <button onclick="appendValue('2')">2</button>
+    <button onclick="appendValue('3')">3</button>
+    <br>
+    <button onclick="appendValue('0')">0</button>
+    <button onclick="appendValue('.')">.</button>
+  </div>
+
+  <script>
+    function appendValue(value) {
+      document.getElementById('display').value += value;
+    }
+
+    function clearDisplay() {
+      document.getElementById('display').value = '';
+    }
+
+    function calculateResult() {
+      try {
+        document.getElementById('display').value = eval(document.getElementById('display').value);
+      } catch {
+        document.getElementById('display').value = 'Error';
+      }
+    }
+  </script>
+<a href="https://www.google.com/search?q=currency+converter"
+   target="_blank" rel="noopener"
+   style="display:inline-block;padding:10px 16px;border-radius:8px;border:0;background:#3b82f6;color:#fff;font-weight:700;text-decoration:none;">
+  Open Currency Converter
+</a>
+
+</body>
+</html>
